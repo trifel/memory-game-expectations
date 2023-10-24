@@ -1,0 +1,25 @@
+[package]
+name = "memorygame_expectations"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+leptos = { version = "0.5.1", features = ["csr", "nightly"] }
+leptos_router = { version = "0.5.1", features = ["csr", "nightly"] }
+log = "0.4"
+gloo-net = { version = "0.4", features = ["http"] }
+gloo-timers = { version = "0.3.0", features = ["futures"] }
+web-sys = { version = "0.3.64", features = ["BlobPropertyBag"] }
+js-sys = "0.3.64"
+
+# dependecies for client (enable when csr or hydrate set)
+wasm-bindgen = { version = "0.2" }
+console_log = { version = "1" }
+console_error_panic_hook = { version = "0.1" }
+
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = 'z'
+lto = true
+codegen-units = 1
